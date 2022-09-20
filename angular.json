@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize":true,
             "aot": true,
             "outputPath": "dist/example",
             "index": "src/index.html",
