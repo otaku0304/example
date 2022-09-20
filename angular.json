@@ -9,10 +9,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-us",
+        "locales": {
+          "nl": "src/translate/messages.nl.xlf",
+          "en": "src/translate/messages.en.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/example",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -28,6 +36,21 @@
             "scripts": []
           },
           "configurations": {
+            "nl": {
+              "localize": [
+                "nl"
+              ],
+              "outputPath": "dist/nl/",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/nl/"
+            },"en": {
+              "localize": [
+                "en"
+              ],
+              "outputPath": "dist/en/",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/en/"
+            },
             "production": {
               "budgets": [
                 {
@@ -68,6 +91,12 @@
             },
             "development": {
               "browserTarget": "example:build:development"
+            },
+            "nl": {
+              "browserTarget": "example:build:nl"
+            },
+            "en": {
+              "browserTarget": "example:build:en"
             }
           },
           "defaultConfiguration": "development"
@@ -97,5 +126,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

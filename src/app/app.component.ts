@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'example';
+
+  localesList: any =[
+    {code: 'en', label: 'English'},
+    {code: 'nl', label: 'nederlands'}
+  ]  
 }
